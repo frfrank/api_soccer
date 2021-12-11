@@ -41,7 +41,7 @@ class CoffeeController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Coffee Bar');
+            ->setTitle('STARTUP');
     }
 
     public function configureMenuItems(): iterable

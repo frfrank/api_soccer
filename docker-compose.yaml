@@ -14,13 +14,14 @@ version: '2'
 services:
   database:
     image: mysql:5.7
+    platform: linux/x86_64
     ports:
       - 3307:3306
     volumes:
       - ./docker/db:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: docker
-      MYSQL_DATABASE: coffee
+      MYSQL_DATABASE: soccer
 
 #  php7.4:
 #    build: ./docker/php

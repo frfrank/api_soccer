@@ -141,3 +141,24 @@ body {
   text-decoration: none;
 }
 
+.btn-primary{
+  background-color: $color-primary;
+  border: none;
+  letter-spacing: 2px;  
+
+  &:hover{
+    background-color: #fff  !important;
+    color:$color-primary !important;
+    letter-spacing: 3px;  
+
+  }
+}
+.btn-secondary{
+  border: none;
+  &:hover {
+    background-color: #fff  !important;
+    color:$color-primary !important;
+    letter-spacing: 3px;
+  }
+}
+

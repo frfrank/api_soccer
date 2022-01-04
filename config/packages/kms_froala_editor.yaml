@@ -1,0 +1,15 @@
+twig:
+    form_themes:
+        - '@KMSFroalaEditor/Form/froala_widget.html.twig'
+
+kms_froala_editor:
+    language: es
+    serialNumber: '3AC6eF6D4D3D3A3C2C-22VKOG1FGULVKHXDXNDXc2a1Kd1SNdF3H3A8A5D4A3C3E3B2A15=='
+    imageUploadFolder: 'uploads/contents'
+    imageUploadPath: 'uploads/contents'
+    fileUploadFolder: 'uploads/contents'
+    fileUploadPath: 'uploads/contents'
+    saveInterval: 0
+    height: 500
+    width: '100%'
+    pluginsDisabled: [ "spell_checker"]

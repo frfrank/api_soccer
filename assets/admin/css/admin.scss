@@ -1,0 +1,234 @@
+@import "app.scss";
+
+html {
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  color: #fff !important;  
+
+  &.ea {
+    //  background-color: #dae1e940;
+    height: unset;
+    min-height: 100%;
+    color: #fff;
+  }
+}
+
+
+.sidebar {
+  background-color: $color-app;
+}
+
+.datagrid .form-check {
+  margin-bottom: 0;
+  min-height: 15px;
+  padding-left: 1.2rem;
+}
+
+.content-wrapper {
+  margin: auto;
+}
+.content-header {
+  background: #fff;
+ /*  padding: 3rem; */
+  margin-bottom: 1rem;
+  //margin-top: 1rem;
+}
+
+.content-header-title .title {
+  font-size: var(--font-size-xxxl);
+  color: $color-primary;
+}
+.content-top {
+  background: #fff;
+}
+
+#login form {
+  background-color: var(--color-primary-lightest);
+  border-radius: 1rem;
+  width: 50%;
+  margin: auto;
+  padding: 3%;
+
+  img {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 992px) {
+    width: 80%;
+  }
+}
+
+#main-menu {
+  // position: fixed;
+  width: var(--sidebar-max-width);
+  // padding-top: 50px;
+
+  .menu .menu-item {
+    padding: 0;
+
+    .submenu-toggle-icon {
+      /* color: var(--color-neutral-light); */
+      right: 0px;
+      top: 0px;
+    }
+
+    &.active a {
+      /*  background: var(--color-neutral-lighter) !important; */
+      background-color: #fff;
+      color: #fff;
+      margin-right: 1rem;
+      text-decoration: none;
+    }
+
+    a {
+      padding: 0.75rem;
+      color: #fff;
+      // color: var(--color-neutral-light);
+      /*  background: var(--color-neutral-dark); */
+      border-radius: 5px 0 0 5px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0.25rem;
+      position: relative;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      cursor: pointer;
+
+      i {
+        position: inherit;
+        color: #fff;
+      }
+
+      &:hover {
+        /*    background-color: var(--color-primary-darkest);  */
+        text-decoration: none;
+        color: $color-dashboard-5;
+        font-weight: 600;
+      }
+    }
+
+    .submenu {
+      padding-left: 0.25rem;
+
+      .menu-item:hover a {
+        background: var(--color-primary-dark);
+      }
+
+      a {
+        border-radius: 0;
+        // background: var(--color-neutral-mid-darker);
+        background: hsl(210deg, 9%, 41%);
+      }
+    }
+  }
+}
+
+.main-header #header-logo a {
+  color: #fff !important;
+  display: block;
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+  line-height: 24px;
+  padding: 17px 0 28px;
+  text-decoration: none;
+}
+
+.btn-primary{
+  background-color: $color-primary;
+  border: none;
+  letter-spacing: 2px;  
+
+  &:hover{
+    background-color: #fff  !important;
+    color:$color-primary !important;
+    letter-spacing: 3px;  
+
+  }
+}
+.btn-secondary{
+  border: none;
+  &:hover {
+    background-color: #fff  !important;
+    color:$color-primary !important;
+    letter-spacing: 3px;
+  }
+}
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+   background-color: $color-primary;
+  border-color: $color-primary;
+}
+
+.user-menu-wrapper span.user-avatar .fa-stack { 
+  font-size: 14px;
+  vertical-align: middle;
+  width: 2em;
+  background: $color-app;
+  border-radius: 50%;
+}
+
+.user-menu-wrapper span.user-avatar .user-avatar-icon-foreground {
+  color: rgb(241 235 235);
+}
+
+.datagrid .dropdown-actions .dropdown-toggle {
+  border: 1px solid rgb(0 0 0 / 0%);
+  border-radius: var(--border-radius);
+  color: rgb(20 21 22);
+  padding: 3px 5px;
+  background: rgb(220 228 233);
+}
+
+.form-panel-header .form-panel-title a.not-collapsible {
+  cursor: default;
+  text-decoration: none;
+  color: #fff;
+  padding: 1rem;
+}
+
+.form-widget .form-select, .form-widget input.form-control, .form-widget textarea.form-control {
+  /* border: 1px solid var(--form-input-border-color); */
+  box-shadow: var(--form-input-shadow);
+  height: 30px;
+  padding: 3px 7px 4px;
+  transition: box-shadow .08s ease-in,color .08s ease-in;
+  white-space: nowrap;
+  word-break: keep-all;
+  border: none;
+  border-bottom: solid 1px rgb(45 54 84);
+  border-radius: 0;
+}
+
+.form-group label, .form-group legend.col-form-label { 
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  margin: 0;
+  padding: 0 0 8px;
+  color: $color-app;
+}
+
+.form-panel-header .form-panel-title {
+  flex: 1;
+  background: $color-app;
+  border-bottom: none;
+  color: #fff;
+  padding: 0.4rem;
+}
+
+.form-panel-header {
+  box-shadow: none;
+}

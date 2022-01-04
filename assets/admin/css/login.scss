@@ -1,0 +1,113 @@
+@import "app.scss";
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.9;
+  background-image: radial-gradient(
+      rgba(253, 253, 253, 0.3),
+      rgba(134, 133, 133, 0.3)
+    ),
+    url(../images/fondo_apple.jpeg);
+}
+
+.forma {
+  @media #{$breakpoint-lg-min} {
+    height: 100%;
+    border-left: 100px solid rgba(235, 238, 240);
+    border-top: 455px solid transparent;
+    border-bottom: 102px solid transparent;
+  }
+}
+
+.wrapper {
+  position: relative;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+  background-image: radial-gradient(
+      rgba(18, 154, 233, 0.8),
+      rgba(16, 184, 233, 0.7)
+    ),
+    url(../images/fondo_apple.jpeg);
+  box-shadow: $shadow-elevation-3;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+
+  form {
+    margin: auto;
+    padding: 2rem;
+    .title {
+      text-align: center;
+      text-transform: uppercase;
+    }
+    label {
+      margin-bottom: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    input {
+      border: none;
+      border-bottom: solid 3px #fff;
+      border-radius: 0;
+      background-color: transparent;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      margin-top: 2rem;
+      width: 100%;
+      background: #fff;
+      border: solid 1px $color-primary;
+      letter-spacing: 8px;
+      overflow: hidden;
+      color: $color-primary;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      span {
+        position: absolute;
+        width: 100%;
+        height: 100px;
+        border-radius: 50%;
+        background: rgba(38, 184, 221, 0.2);
+        top: -50%;
+        left: -100%;
+        transition: 0.3s;
+      }
+
+      &:hover {
+        background: $color-primary-light;
+        border: none;
+        span {
+          left: -10%;
+        }
+      }
+    }
+  }
+
+  .information {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    color: $color-primary;
+    background-color: #fff;
+    height: 100%;
+    padding: 4rem;
+    text-align: center;
+
+    .welcome {
+      font-size: 3rem;
+    }
+  }
+}

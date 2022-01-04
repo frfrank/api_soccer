@@ -1,0 +1,72 @@
+Show: Ver
+Edit: Modificar
+Remove: Quitar
+Delete: Eliminar
+Yes: Sí
+No: No
+Actions: Acciones
+Clear: Limpiar
+No results found: No se han encontrado resultados
+Configuration: Configuración
+Limit: Límite
+Close: Cerrar
+Save: Guardar
+Save and create other: Crear y añadir otro
+Save changes: Guardar cambios
+Save and keep editing: Guardar y seguir editando
+form.label.delete: Eliminar
+
+Basic information: Información básica
+Created At: Creado
+Created By: Creado por
+Created by: Creado por
+Updated At: Actualizado
+Updated By: Actualizado por
+Deleted By: Eliminado por
+Deleted At: Eliminado
+
+Image: Imagen
+Image File: Imagen
+Images: Imágenes
+Add images: Añadir imágenes
+Title: Título
+Name: Nombre
+Description: Descripción
+Active: Activo
+Type: Tipo
+Sort: Orden
+Date: Fecha
+Search: Buscar
+Clear filters: Limpiar filtros
+Filter by: Filtrar por
+Show all: Ver todo
+more info: más info
+Dashboard: Panel
+
+user:
+    labelInSingular: Usuario
+    labelInPlural: Usuarios
+    panel:
+        access: Acceso
+        company: Datos empresa
+    configureFields:
+        email: Email
+        password: Contraseña
+        roles: Roles
+        firstName: Nombre
+        lastName: Apellidos
+        company: Empresa
+    successfullRegistration: Usuario %s registrado correctamente
+    impersonateAction: Impersonar
+
+company:
+    labelInSingular: Empresa
+    labelInPlural: Empresas
+    panel:        
+        company: Datos empresa   
+    configureFields:
+        name: Nombre
+        url: Url
+        email: Email
+        domain: Dominio
+    

@@ -1,0 +1,4 @@
+parameters:
+    app.sender_email: 'no-reply@symfony-skeleton.com'
+    app.sender_name: 'Symfony Skeleton'
+    app.user_password_timeout: 3600

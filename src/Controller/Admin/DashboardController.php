@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Blocks;
 use App\Entity\Company;
 use App\Entity\User;
 use App\Traits\TranslatorTrait;
@@ -55,12 +56,13 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('CVS');
+            ->setTitle('STARTUP');
     }
 
 
     public function configureMenuItems(): iterable
     {
+        yield MenuItem::linkToCrud($this->trans('blocks.labelInPlural'), 'fas fa-users', Blocks::class);
         yield MenuItem::linkToCrud($this->trans('company.labelInPlural'), 'fas fa-building', Company::class)->setPermission(User::ROLE_ADMIN);
         yield MenuItem::linkToCrud($this->trans('user.labelInPlural'), 'fas fa-users', User::class);
     }

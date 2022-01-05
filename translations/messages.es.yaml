@@ -69,4 +69,12 @@ company:
         url: Url
         email: Email
         domain: Dominio
+blocks:
+    labelInSingular: Bloque
+    labelInPlural: Bloques
+    panel:        
+        company: Datos del bloque   
+    configureFields:
+        icon: Icono
+        
     

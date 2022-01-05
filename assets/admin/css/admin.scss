@@ -10,7 +10,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  color: #fff !important;  
+  color: #fff !important;
 
   &.ea {
     //  background-color: #dae1e940;
@@ -19,7 +19,6 @@ body {
     color: #fff;
   }
 }
-
 
 .sidebar {
   background-color: $color-app;
@@ -36,7 +35,7 @@ body {
 }
 .content-header {
   background: #fff;
- /*  padding: 3rem; */
+  /*  padding: 3rem; */
   margin-bottom: 1rem;
   //margin-top: 1rem;
 }
@@ -146,34 +145,58 @@ body {
   text-decoration: none;
 }
 
-.btn-primary{
+.btn-primary {
   background-color: $color-primary;
   border: none;
-  letter-spacing: 2px;  
+  letter-spacing: 2px;
 
-  &:hover{
-    background-color: #fff  !important;
-    color:$color-primary !important;
-    letter-spacing: 3px;  
-
-  }
-}
-.btn-secondary{
-  border: none;
   &:hover {
-    background-color: #fff  !important;
-    color:$color-primary !important;
+    background-color: #fff !important;
+    color: $color-primary !important;
     letter-spacing: 3px;
   }
 }
+
+.btn-secondary {
+  border: none;
+
+  &:hover {
+    background-color: #fff !important;
+    color: $color-primary !important;
+    letter-spacing: 3px;
+  }
+}
+
+.action-batchDelete {
+  color: #fff !important;
+  background-color: $color-error;
+  &:hover {
+    background-color: #fff !important;
+    color: $color-error !important;
+    letter-spacing: 3px;
+    border: solid 1px $color-error !important;
+  }
+}
+
+.action-delete {
+  color: #fff !important;
+  background-color: $color-error;
+  &:hover {
+    background-color: #fff !important;
+    color: $color-error !important;
+    letter-spacing: 3px;
+    border: solid 1px $color-error !important;
+  }
+}
+
 .page-item.active .page-link {
   z-index: 3;
   color: #fff;
-   background-color: $color-primary;
+  background-color: $color-primary;
   border-color: $color-primary;
 }
 
-.user-menu-wrapper span.user-avatar .fa-stack { 
+.user-menu-wrapper span.user-avatar .fa-stack {
   font-size: 14px;
   vertical-align: middle;
   width: 2em;
@@ -200,12 +223,14 @@ body {
   padding: 1rem;
 }
 
-.form-widget .form-select, .form-widget input.form-control, .form-widget textarea.form-control {
+.form-widget .form-select,
+.form-widget input.form-control,
+.form-widget textarea.form-control {
   /* border: 1px solid var(--form-input-border-color); */
   box-shadow: var(--form-input-shadow);
   height: 30px;
   padding: 3px 7px 4px;
-  transition: box-shadow .08s ease-in,color .08s ease-in;
+  transition: box-shadow 0.08s ease-in, color 0.08s ease-in;
   white-space: nowrap;
   word-break: keep-all;
   border: none;
@@ -213,7 +238,8 @@ body {
   border-radius: 0;
 }
 
-.form-group label, .form-group legend.col-form-label { 
+.form-group label,
+.form-group legend.col-form-label {
   font-size: var(--font-size-base);
   font-weight: 500;
   margin: 0;
@@ -231,4 +257,57 @@ body {
 
 .form-panel-header {
   box-shadow: none;
+}
+
+.form-check .form-check-input {
+  height: 25px;
+  width: 25px;
+}
+
+.form-check-input:checked {
+  background-color: $color-primary;
+  border-color: $color-primary;
+}
+
+trix-editor[input="Classroom_description"].trix-content {
+  min-height: 129px;
+  background: rgb(85 97 137);
+}
+
+trix-toolbar * {
+  box-sizing: border-box;
+  background: rgb(237 237 237);
+  /* color: rgb(255 255 255); */
+}
+
+.ea-text-editor-wrapper {
+  background: rgb(85 97 137) !important;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--border-radius);
+  box-shadow: 0 1px 2px 0 var(--gray-50);
+  padding: 7px;
+}
+
+.dropdown-menu {
+  li{
+    .company {    
+      padding: auto;
+      margin: auto;
+      text-align: center;
+      color: rgb(237 237 237);
+      /* padding-top: 1rem; */
+      background: rgb(45 54 84);
+      margin-top: 1rem;
+      padding: 0.5rem;
+    }
+  }
+  
+}
+
+
+.datagrid .field-boolean .form-switch input {
+  margin-top: 0;
+  position: relative;
+  top: 8px;
+  width: 3rem;
 }

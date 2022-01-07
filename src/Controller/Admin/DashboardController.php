@@ -64,9 +64,13 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToCrud($this->trans('blocks.labelInPlural'), 'fas fa-shapes', Blocks::class)->setPermission(User::ROLE_ADMIN);
-        yield MenuItem::linkToCrud($this->trans('typequestion.labelInPlural'), 'fas fa-th-large', TypeQuestion::class)->setPermission(User::ROLE_ADMIN);
-        yield MenuItem::linkToCrud($this->trans('question.labelInPlural'), 'fas fa-th-large', Question::class)->setPermission(User::ROLE_ADMIN);
+        yield MenuItem::subMenu('Question', 'fas fa-shapes')->setSubItems([
+            MenuItem::linkToCrud($this->trans('blocks.labelInPlural'), 'fas fa-shapes', Blocks::class),
+            MenuItem::linkToCrud($this->trans('typequestion.labelInPlural'), 'fas fa-th-large', TypeQuestion::class),
+            MenuItem::linkToCrud($this->trans('question.labelInPlural'), 'fas fa-th-large', Question::class)
+
+        ])->setPermission(User::ROLE_ADMIN);
+        
         yield MenuItem::linkToCrud($this->trans('company.labelInPlural'), 'fas fa-building', Company::class)->setPermission(User::ROLE_ADMIN);
         yield MenuItem::linkToCrud($this->trans('user.labelInPlural'), 'fas fa-users', User::class);
     }

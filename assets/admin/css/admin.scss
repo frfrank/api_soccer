@@ -73,8 +73,19 @@ body {
 #main-menu {
   // position: fixed;
   width: var(--sidebar-max-width);
-  // padding-top: 50px;
 
+  .menu .expanded{
+    background-color: $color-primary-dark;    
+    margin-right: 0.6rem;
+    text-decoration: none;
+
+    @media #{$breakpoint-md-max} {
+      background-color: red;
+
+    }
+  }
+  // padding-top: 50px;
+ 
   .menu .menu-item {
     padding: 0;
 
@@ -82,8 +93,8 @@ body {
       /* color: var(--color-neutral-light); */
       right: 0px;
       top: 0px;
-    }
-
+    }    
+    
     &.active a {
       /*  background: var(--color-neutral-lighter) !important; */
       background-color: #fff;
@@ -120,16 +131,30 @@ body {
     }
 
     .submenu {
-      padding-left: 0.25rem;
+     /*  padding-left: 0.25rem; */
 
       .menu-item:hover a {
-        background: var(--color-primary-dark);
+        text-decoration: none;
+        color: $color-dashboard-5;
+        font-weight: 600;
       }
 
+
+      .menu-item{
+        &.active a {
+          /*  background: var(--color-neutral-lighter) !important; */
+          background-color: #fff;
+          color: $color-primary;
+          margin-right: 1rem;
+          text-decoration: none;
+        }
+      }
+     
+
       a {
-        border-radius: 0;
+        border-radius: 0;       
         // background: var(--color-neutral-mid-darker);
-        background: hsl(210deg, 9%, 41%);
+        background: $color-dashboard-2;
       }
     }
   }
@@ -311,3 +336,18 @@ trix-toolbar * {
   top: 8px;
   width: 3rem;
 }
+
+#main-menu .menu .menu-item.active:not(.expanded) .menu-icon, #main-menu .menu .menu-item.active:not(.expanded) a {
+  color: var(--sidebar-menu-active-item-color);
+  background: rgb(255 255 255);
+}
+
+#main-menu .menu .menu-item .submenu-toggle .submenu-toggle-icon {
+  color: rgb(230 233 237);
+  position: relative;
+  top: 5px;
+  transition: transform .25s ease;
+  width: auto;
+  right: 1rem;
+}
+

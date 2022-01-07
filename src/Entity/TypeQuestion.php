@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\BlocksRepository;
+use App\Repository\TypeQuestionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,9 +10,9 @@ use App\Behavior\Blamable;
 use App\Behavior\Timestampable;
 
 /**
- * @ORM\Entity(repositoryClass=BlocksRepository::class)
+ * @ORM\Entity(repositoryClass=TypeQuestionRepository::class)
  */
-class Blocks
+class TypeQuestion
 {
     use Blamable;
     use Timestampable;
@@ -29,17 +29,12 @@ class Blocks
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=100, nullable=true)
-     */
-    private $icon;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $state;
 
     /**
-     * @ORM\OneToMany(targetEntity=Question::class, mappedBy="block")
+     * @ORM\OneToMany(targetEntity=Question::class, mappedBy="type")
      */
     private $questions;
 
@@ -71,24 +66,12 @@ class Blocks
         return $this;
     }
 
-    public function getIcon(): ?string
-    {
-        return $this->icon;
-    }
-
-    public function setIcon(?string $icon): self
-    {
-        $this->icon = $icon;
-
-        return $this;
-    }
-
-    public function getState(): ?bool
+    public function getState(): ?string
     {
         return $this->state;
     }
 
-    public function setState(?bool $state): self
+    public function setState(?string $state): self
     {
         $this->state = $state;
 
@@ -107,7 +90,7 @@ class Blocks
     {
         if (!$this->questions->contains($question)) {
             $this->questions[] = $question;
-            $question->setBlock($this);
+            $question->setType($this);
         }
 
         return $this;
@@ -117,8 +100,8 @@ class Blocks
     {
         if ($this->questions->removeElement($question)) {
             // set the owning side to null (unless already changed)
-            if ($question->getBlock() === $this) {
-                $question->setBlock(null);
+            if ($question->getType() === $this) {
+                $question->setType(null);
             }
         }
 

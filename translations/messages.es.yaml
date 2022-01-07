@@ -42,6 +42,7 @@ Filter by: Filtrar por
 Show all: Ver todo
 more info: más info
 Dashboard: Panel
+state: Estado
 
 user:
     labelInSingular: Usuario
@@ -76,5 +77,17 @@ blocks:
         company: Datos del bloque   
     configureFields:
         icon: Icono
+
+typequestion:
+    labelInSingular: Tipo pregunta
+    labelInPlural: Tipos de preguntas
+    panel:        
+        type: Datos del tipo de pregunta   
+
+question:
+    labelInSingular: Pregunta
+    labelInPlural: Preguntas
+    panel:        
+        type: Datos de la pregunta  
         
     

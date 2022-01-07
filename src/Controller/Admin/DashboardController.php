@@ -37,7 +37,7 @@ class DashboardController extends AbstractDashboardController
     {
         // return parent::index();
 
-        if (in_array(User::ROLE_COORDINATOR, $this->getUser()->getRoles()) || in_array(User::ROLE_TUTOR, $this->getUser()->getRoles())) {
+        if (in_array(User::ROLE_CLUB, $this->getUser()->getRoles()) || in_array(User::ROLE_COACH, $this->getUser()->getRoles())) {
             $url = $this->adminUrlGenerator
                 ->setController(UserCrudController::class)
                 ->generateUrl();

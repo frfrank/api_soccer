@@ -60,10 +60,10 @@ user:
     impersonateAction: Impersonar
 
 company:
-    labelInSingular: Empresa
-    labelInPlural: Empresas
+    labelInSingular: Club
+    labelInPlural: Clubs
     panel:        
-        company: Datos empresa   
+        company: Datos club   
     configureFields:
         name: Nombre
         url: Url

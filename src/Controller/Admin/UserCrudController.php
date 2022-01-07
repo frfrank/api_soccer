@@ -31,7 +31,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\SearchDto;
 
 /**
- * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_MANAGER') or is_granted('ROLE_COORDINATOR') or is_granted('ROLE_TUTOR')")
+ * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_CLUB') or is_granted('ROLE_COACH')")
  */
 class UserCrudController extends CrudController
 {
@@ -112,8 +112,8 @@ class UserCrudController extends CrudController
             ->setLabel($this->trans('user.configureFields.roles'))
             ->setColumns('col-md-6 col-xl-4');
 
-        $roles_coordinator = ChoiceField::new('roles')
-            ->setChoices(array_flip(User::ROLES_COORDINATOR))
+        $roles_club = ChoiceField::new('roles')
+            ->setChoices(array_flip(User::ROLES_CLUB))
             ->allowMultipleChoices(true)
             ->setLabel($this->trans('user.configureFields.roles'))
             ->setColumns('col-md-6 col-xl-4');
@@ -133,13 +133,13 @@ class UserCrudController extends CrudController
                 $password->setRequired(true);
             }
 
-            return [$panelAccess, $firstName, $lastName, $email, $password, $roles_coordinator->setPermission(User::ROLE_COORDINATOR), $roles->setPermission(User::ROLE_ADMIN), $companies->setPermission(User::ROLE_ADMIN)];
+            return [$panelAccess, $firstName, $lastName, $email, $password, $roles_club->setPermission(User::ROLE_CLUB), $roles->setPermission(User::ROLE_ADMIN), $companies->setPermission(User::ROLE_ADMIN)];
         } else if (in_array($pageName, [Crud::PAGE_EDIT])) {
             if (Crud::PAGE_NEW === $pageName) {
                 $password->setRequired(true);
             }
 
-            $field = [$panelAccess, $firstName, $lastName, $email, $password, $roles_coordinator->setPermission(User::ROLE_COORDINATOR), $roles->setPermission(User::ROLE_ADMIN), $companies->setPermission(User::ROLE_ADMIN)];
+            $field = [$panelAccess, $firstName, $lastName, $email, $password, $roles_club->setPermission(User::ROLE_CLUB), $roles->setPermission(User::ROLE_ADMIN), $companies->setPermission(User::ROLE_ADMIN)];
             return $field;
         }
 
@@ -200,12 +200,12 @@ class UserCrudController extends CrudController
 
         $user = new User();
 
-        if (in_array(User::ROLE_COORDINATOR, $this->getUser()->getRoles())) {
+        if (in_array(User::ROLE_CLUB, $this->getUser()->getRoles())) {
             $user->setCompany($companies);
         }
-        else if(in_array(User::ROLE_TUTOR, $this->getUser()->getRoles())){
+        else if(in_array(User::ROLE_COACH, $this->getUser()->getRoles())){
             $user->setCompany($companies);
-            $user->addRole(User::ROLE_STUDENT);           
+            $user->addRole(User::ROLE_PLAYER);           
 
         }
         
@@ -217,13 +217,13 @@ class UserCrudController extends CrudController
     {
         $qb = $this->get(EntityRepository::class)->createQueryBuilder($searchDto, $entityDto, $fields, $filters);
 
-        if (in_array("ROLE_COORDINATOR", $this->getUser()->getRoles()) && !in_array("ROLE_ADMIN", $this->getUser()->getRoles())) {
+        if (in_array("ROLE_CLUB", $this->getUser()->getRoles()) && !in_array("ROLE_ADMIN", $this->getUser()->getRoles())) {
             $qb->andWhere('entity.createdBy = :user');
             $qb->setParameter('user', $this->getUser());
 
             return  $qb;
         }
-        else if(in_array("ROLE_TUTOR", $this->getUser()->getRoles()) && !in_array("ROLE_ADMIN", $this->getUser()->getRoles())){
+        else if(in_array("ROLE_COACH", $this->getUser()->getRoles()) && !in_array("ROLE_ADMIN", $this->getUser()->getRoles())){
             $qb->andWhere('entity.createdBy = :user');
             $qb->setParameter('user', $this->getUser());
 

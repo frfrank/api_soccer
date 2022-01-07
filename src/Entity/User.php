@@ -22,26 +22,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     
     const ROLE_ADMIN = 'ROLE_ADMIN';
     const ROLE_MANAGER = 'ROLE_MANAGER';
-    const ROLE_USER = 'ROLE_USER';
-    const ROLE_COORDINATOR ='ROLE_COORDINATOR';
-    const ROLE_TUTOR ='ROLE_TUTOR';
-    const ROLE_STUDENT= 'ROLE_STUDENT';
+    const ROLE_USER = 'ROLE_USER';  
+    const ROLE_CLUB = 'ROLE_CLUB';
+    const ROLE_COACH = 'ROLE_COACH';
+    const ROLE_PLAYER = 'ROLE_PLAYER';
+    const ROLE_PSYCHOLOGIST = 'ROLE_PSYCHOLOGIST';
 
     const ROLES = [
         self::ROLE_ADMIN   => 'Administrator',
-        self::ROLE_MANAGER => 'Manager',
+        self::ROLE_PSYCHOLOGIST => 'Psicologo',
         self::ROLE_USER    => 'User',
-        self::ROLE_COORDINATOR => 'Coordinator',
-        self::ROLE_TUTOR => 'Tutor',
-        self::ROLE_STUDENT => 'Student'
+        self::ROLE_CLUB => 'Club',
+        self::ROLE_COACH => 'Coach',
+        self::ROLE_PLAYER => 'Player'
     ];
 
-    const ROLES_COORDINATOR = [
-        self::ROLE_USER    => 'User',
-        self::ROLE_COORDINATOR => 'Coordinator',
-        self::ROLE_TUTOR => 'Tutor',      
+    const ROLES_CLUB = [
+        self::ROLE_USER    => 'User',  
+        self::ROLE_COACH => 'Coach',      
+        self::ROLE_PLAYER => 'Player'      
     ];
-
+   
     /**
      * @ORM\Id
      * @ORM\GeneratedValue

@@ -8,6 +8,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Behavior\Blamable;
 use App\Behavior\Timestampable;
+use DateTime;
+
 
 /**
  * @ORM\Entity(repositoryClass=CompanyRepository::class)
@@ -52,6 +54,8 @@ class Company
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->createdAt = new DateTime();
+        $this->updatedAt = new DateTime();
     }
 
     public function __toString()

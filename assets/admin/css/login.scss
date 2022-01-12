@@ -3,24 +3,24 @@
 body {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   height: 100vh;
-  color: #fff;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.9;
-  background-image: radial-gradient(
+  color: #fff; 
+ /*  opacity: 0.9; */
+  background-color: #fff;
+  /* background-image: radial-gradient(
       rgba(253, 253, 253, 0.3),
       rgba(134, 133, 133, 0.3)
     ),
-    url(../images/fondo_apple.jpeg);
+    url(../images/fondo_apple.jpeg); */
 }
 
 .forma {
   @media #{$breakpoint-lg-min} {
     height: 100%;
-    border-left: 100px solid rgba(235, 238, 240);
-    border-top: 455px solid transparent;
-    border-bottom: 102px solid transparent;
+    border-left: 121px solid rgb(255 255 255);
+    border-top: 370px solid rgb(0 0 0 / 0%);
+    border-bottom: 265px solid rgb(0 0 0 / 0%);
   }
 }
 
@@ -33,6 +33,7 @@ body {
   flex-direction: row;
   justify-content: center;
   margin: auto;
+  flex-wrap: wrap;
   background-image: radial-gradient(
       rgba(18, 154, 233, 0.8),
       rgba(16, 184, 233, 0.7)
@@ -61,6 +62,7 @@ body {
       border-radius: 0;
       background-color: transparent;
       margin-bottom: 2rem;
+      outline: none;
     }
 
     button {
@@ -108,6 +110,11 @@ body {
 
     .welcome {
       font-size: 3rem;
+    }
+
+    .image{
+      width: 29rem;
+      margin-left: -8rem;      
     }
   }
 }

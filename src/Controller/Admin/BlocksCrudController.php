@@ -6,17 +6,18 @@ use App\Entity\Blocks;
 use Doctrine\Migrations\Version\State;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Provider\AdminContextProvider;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 
 class BlocksCrudController extends CrudController
@@ -41,6 +42,7 @@ class BlocksCrudController extends CrudController
         return $crud
             ->setEntityLabelInSingular($this->trans('blocks.labelInSingular'))
             ->setEntityLabelInPlural($this->trans('blocks.labelInPlural'))
+            ->overrideTemplate('crud/detail', 'admin/block/detail.html.twig')
             ->setSearchFields(['name']);
     }
 
@@ -55,9 +57,7 @@ class BlocksCrudController extends CrudController
             ->setLabel($this->trans('blocks.configureFields.icon'))
             ->setColumns('col-md-6 col-xl-6');
 
-        $state = BooleanField::new('state');
-
-       
+        $state = BooleanField::new('state');       
 
         $panelBlock  = FormField::addPanel($this->trans('blocks.panel.company'));        
 
@@ -78,5 +78,14 @@ class BlocksCrudController extends CrudController
         }
 
         return $field;
+    }
+
+    public function configureActions(Actions $actions): Actions
+    {       
+
+        $actions
+        ->add(Crud::PAGE_INDEX, Action::DETAIL);      
+ 
+        return $actions;
     }
 }

@@ -23,6 +23,8 @@ Encore
     .addEntry('app', './assets/admin/js/app.js')
     .addEntry('login', './assets/admin/js/login.js')
     .addEntry('admin', './assets/admin/js/admin.js')
+    .addEntry('question', './assets/vue/questionview.js')
+
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

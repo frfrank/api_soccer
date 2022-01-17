@@ -1,0 +1,24 @@
+{% extends '@!EasyAdmin/crud/detail.html.twig' %}
+
+{% block head_stylesheets %}
+    {{ parent() }}   
+    {{ encore_entry_link_tags('question') }}
+  
+{% endblock %}
+
+{% block content_title %}
+   
+{% endblock %}
+
+
+{% block main %}
+    <div id="question">Detalle del bloque
+    <questionview></questionview>
+    </div>
+{% endblock %}
+
+{% block body_javascript %}
+    {{ parent() }}   
+    {{ encore_entry_script_tags('question') }}
+    
+{% endblock %}

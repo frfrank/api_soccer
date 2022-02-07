@@ -19,13 +19,18 @@
 
       <div class="extras" v-if="extraInputSelect">
         <select v-model="extra" class="form-control" name="type">
-          <option selected value="Selecciona una opcion">
-            Selecciona una opcion
-          </option>
           <option v-for="extr in extraInputSelect" :key="extr" :value="extr">
             {{ extr }}
           </option>
         </select>
+      </div>
+      {{ attributes }}
+      <div class="typesInputs">
+        <div v-for="attr in attributes" :key="attr.id">
+          <p> {{attr.label}}</p>
+          <input type="checkbox" v-model="attr.state" />
+          <input v-bind="attr.attrs" v-model="attr.value" min="0" />
+        </div>
       </div>
 
       <div class="title-question">
@@ -33,18 +38,16 @@
           type="text"
           name="title"
           class="form-control"
-          v-model="title"
+          v-model="titleQuestion"
           placeholder="Titulo de la pregunta"
         />
       </div>
     </div>
-    {{ extraInputSelect }}
+
     <div class="model-question">
       <p class="title">Resultado pregunta</p>
-      <component :is="typeQuestion" 
-      :title="title" 
-       v-bind="attr"
-      />
+
+      <component :is="typeQuestion" :title="titleQuestion" v-bind="attr" />
     </div>
   </div>
 </template>
@@ -63,8 +66,8 @@ export default {
 
   data() {
     return {
-      typeQuestion: "",
-      title: "",
+      typeQuestion: "InputType",
+      titleQuestion: "",
       extra: "",
       selectQuestion: [
         {
@@ -76,6 +79,52 @@ export default {
           id: 2,
           name: "Select",
           value: "SelectType",
+        },
+      ],
+
+      attributes: [
+        {
+          id: 1,
+          state: true,
+          value: 0,
+          name: "min",
+          label: "Mínimo",
+          attrs: {
+            type: "number",
+            min: 0,
+          },
+        },
+        {
+          id: 2,
+          state: true,
+          value: 100,
+          name: "max",
+          label: "Máximo",
+          attrs: {
+            type: "number",
+            min: 0,
+          },
+        },
+        {
+          id: 3,
+          state: false,
+          value: 1,
+          name: "step",
+          label: "Incrementar en ",
+          attrs: {
+            type: "number",
+            min: 1,
+          },
+        },
+        {
+          id: 4,
+          state: false,
+          value: "M",
+          name: "units",
+          label: "Unidad de medida ",
+          attrs: {
+            type: "text",
+          },
         },
       ],
     };
@@ -90,15 +139,24 @@ export default {
       return extras[this.typeQuestion];
     },
 
-    attr(){
+    conditionsInput() {
+      const condition = {
+        min: 0,
+        max: 200,
+      };
+
+      return condition;
+    },
+
+    attr() {
       const attr = {
-        type : this.extra,
-        placeholder: 'Rellene la pregunta'
+        type: this.extra,
+        placeholder: "Rellene la pregunta",
+        ...this.conditionsInput,
       };
 
       return attr;
-
-    }
+    },
   },
 };
 </script>
@@ -106,6 +164,12 @@ export default {
 <style lang="scss" scoped>
 @import "/assets/admin/css/app.scss";
 .question-view {
+   input {
+      border: none;
+      border-bottom: solid 1px $color-app;
+      border-radius: none;
+      border-radius: 0;
+    }
   select {
     border: none;
     border-bottom: solid 1px $color-app;
@@ -137,8 +201,29 @@ export default {
     }
   }
 
-  .extras{
-     margin-bottom: 2rem;
+  .typesInputs {
+    display: flex;
+    /* background: rgb(247 245 245); */
+    flex-direction: row;
+    flex-wrap: wrap;    
+    justify-content: space-around;
+    margin-bottom: 2rem;
+
+    input[type="checkbox"] {
+        width: 1.4rem;
+        height: 1.4rem;
+        &::before {
+          content: "";
+          background: red;
+          width: 3rem;
+        }
+        &:checked {
+          background: red;
+        }
+      }
+  }
+  .extras {
+    margin-bottom: 2rem;
   }
 
   .title-question {
